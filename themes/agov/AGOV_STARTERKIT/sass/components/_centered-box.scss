@@ -7,6 +7,12 @@
   padding: 40px;
 }
 
+.centered-box--installer,
+%centered-box--installer {
+  text-align: left;
+  padding: 20px;
+}
+
 %centered-box__image,
 .centered-box__image {
   margin: 0 auto;
@@ -20,3 +26,7 @@
   margin-bottom: 1em;
 }
 
+
+.installer .centered-box {
+  @extend %centered-box--installer;
+}
