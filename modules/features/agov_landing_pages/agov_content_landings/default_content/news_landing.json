@@ -27,7 +27,7 @@
         "field_name": "field_content",
         "default_revision": "1",
         "archived": "0",
-        "bundle": "section_item",
+        "bundle": "quick_item",
         "field_pbundle_destination": {
           "und": [
             {
@@ -68,9 +68,9 @@
         "field_pbundle_text": {
           "und": [
             {
-              "value": "<p>This shows a <strong>Section Item<\/strong> widget using the <em>Teaser (title)<\/em> view mode.<\/p>",
+              "value": "<p>This shows a <strong>quick item<\/strong> widget using the <em>Teaser (title)<\/em> view mode.<\/p>",
               "format": "rich_text",
-              "safe_value": "<p>This shows a <strong>Section Item<\/strong> widget using the <em>Teaser (title)<\/em> view mode.<\/p>\n"
+              "safe_value": "<p>This shows a <strong>quick item<\/strong> widget using the <em>Teaser (title)<\/em> view mode.<\/p>\n"
             }
           ]
         },
@@ -99,7 +99,7 @@
         "field_name": "field_content",
         "default_revision": "1",
         "archived": "0",
-        "bundle": "section_item",
+        "bundle": "quick_item",
         "field_pbundle_destination": {
           "und": [
             {
@@ -140,9 +140,9 @@
         "field_pbundle_text": {
           "und": [
             {
-              "value": "<p>This shows a <strong>Section Item<\/strong> widget using the <em>Teaser (Image) <\/em>view mode.<\/p>",
+              "value": "<p>This shows a <strong>quick item<\/strong> widget using the <em>Teaser (Image) <\/em>view mode.<\/p>",
               "format": "rich_text",
-              "safe_value": "<p>This shows a <strong>Section Item<\/strong> widget using the <em>Teaser (Image) <\/em>view mode.<\/p>\n"
+              "safe_value": "<p>This shows a <strong>quick item<\/strong> widget using the <em>Teaser (Image) <\/em>view mode.<\/p>\n"
             }
           ]
         },
@@ -171,7 +171,7 @@
         "field_name": "field_content",
         "default_revision": "1",
         "archived": "0",
-        "bundle": "section_item",
+        "bundle": "quick_item",
         "field_pbundle_destination": {
           "und": [
             {
@@ -212,9 +212,9 @@
         "field_pbundle_text": {
           "und": [
             {
-              "value": "<p>This shows a <strong>Section Item<\/strong> widget using the <em>Tile (text) <\/em>view mode<\/p>",
+              "value": "<p>This shows a <strong>quick item<\/strong> widget using the <em>Tile (text) <\/em>view mode<\/p>",
               "format": "rich_text",
-              "safe_value": "<p>This shows a <strong>Section Item<\/strong> widget using the <em>Tile (text) <\/em>view mode<\/p>\n"
+              "safe_value": "<p>This shows a <strong>quick item<\/strong> widget using the <em>Tile (text) <\/em>view mode<\/p>\n"
             }
           ]
         },
@@ -243,7 +243,7 @@
         "entity_type": "paragraphs_item",
         "default_revision": "1",
         "archived": "0",
-        "bundle": "section_item",
+        "bundle": "quick_item",
         "field_pbundle_destination": {
           "und": [
             {
@@ -284,9 +284,9 @@
         "field_pbundle_text": {
           "und": [
             {
-              "value": "<p>This shows a&nbsp;<strong>Section Item&nbsp;<\/strong>using the&nbsp;<em>Tile (Image)&nbsp;<\/em>view mode.<\/p>",
+              "value": "<p>This shows a&nbsp;<strong>Quick item&nbsp;<\/strong>using the&nbsp;<em>Tile (Image)&nbsp;<\/em>view mode.<\/p>",
               "format": "rich_text",
-              "safe_value": "<p>This shows a\u00a0<strong>Section Item\u00a0<\/strong>using the\u00a0<em>Tile (Image)\u00a0<\/em>view mode.<\/p>\n"
+              "safe_value": "<p>This shows a\u00a0<strong>Quick item\u00a0<\/strong>using the\u00a0<em>Tile (Image)\u00a0<\/em>view mode.<\/p>\n"
             }
           ]
         },

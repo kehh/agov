@@ -176,13 +176,13 @@ function agov_paragraphs_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_pbundle_section_content'
-  $field_bases['field_pbundle_section_content'] = array(
+  // Exported field_base: 'field_pbundle_container_content'
+  $field_bases['field_pbundle_container_content'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_pbundle_section_content',
+    'field_name' => 'field_pbundle_container_content',
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -192,13 +192,13 @@ function agov_paragraphs_field_default_field_bases() {
     'type' => 'paragraphs',
   );
 
-  // Exported field_base: 'field_pbundle_section_layout'
-  $field_bases['field_pbundle_section_layout'] = array(
+  // Exported field_base: 'field_pbundle_container_layout'
+  $field_bases['field_pbundle_container_layout'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_pbundle_section_layout',
+    'field_name' => 'field_pbundle_container_layout',
     'foreign keys' => array(
       'eck_arrangement' => array(
         'columns' => array(

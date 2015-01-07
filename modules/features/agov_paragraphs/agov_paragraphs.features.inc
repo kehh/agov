@@ -24,14 +24,14 @@ function agov_paragraphs_paragraphs_info() {
       'bundle' => 'node',
       'locked' => '1',
     ),
-    'section' => array(
-      'name' => 'Section',
-      'bundle' => 'section',
+    'container' => array(
+      'name' => 'Container',
+      'bundle' => 'container',
       'locked' => '1',
     ),
-    'section_item' => array(
-      'name' => 'Section item',
-      'bundle' => 'section_item',
+    'quick_item' => array(
+      'name' => 'Quick item',
+      'bundle' => 'quick_item',
       'locked' => '1',
     ),
     'text' => array(

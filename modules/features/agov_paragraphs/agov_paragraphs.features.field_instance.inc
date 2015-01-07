@@ -507,9 +507,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section-field_pbundle_css_classes'
-  $field_instances['paragraphs_item-section-field_pbundle_css_classes'] = array(
-    'bundle' => 'section',
+  // Exported field_instance: 'paragraphs_item-container-field_pbundle_css_classes'
+  $field_instances['paragraphs_item-container-field_pbundle_css_classes'] = array(
+    'bundle' => 'container',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -581,9 +581,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section-field_pbundle_section_content'
-  $field_instances['paragraphs_item-section-field_pbundle_section_content'] = array(
-    'bundle' => 'section',
+  // Exported field_instance: 'paragraphs_item-container-field_pbundle_container_content'
+  $field_instances['paragraphs_item-container-field_pbundle_container_content'] = array(
+    'bundle' => 'container',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -638,19 +638,19 @@ function agov_paragraphs_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'paragraphs_item',
-    'field_name' => 'field_pbundle_section_content',
-    'label' => 'Section content',
+    'field_name' => 'field_pbundle_container_content',
+    'label' => 'container content',
     'required' => 0,
     'settings' => array(
       'add_mode' => 'select',
       'allowed_bundles' => array(
         'image' => 0,
-        'section' => 0,
+        'container' => 0,
         'text' => 0,
       ),
       'default_edit_mode' => 'open',
-      'title' => 'Section',
-      'title_multiple' => 'Sections',
+      'title' => 'container',
+      'title_multiple' => 'containers',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -662,9 +662,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section-field_pbundle_section_layout'
-  $field_instances['paragraphs_item-section-field_pbundle_section_layout'] = array(
-    'bundle' => 'section',
+  // Exported field_instance: 'paragraphs_item-container-field_pbundle_container_layout'
+  $field_instances['paragraphs_item-container-field_pbundle_container_layout'] = array(
+    'bundle' => 'container',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -713,8 +713,8 @@ function agov_paragraphs_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'paragraphs_item',
-    'field_name' => 'field_pbundle_section_layout',
-    'label' => 'Section layout',
+    'field_name' => 'field_pbundle_container_layout',
+    'label' => 'container layout',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -732,9 +732,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section-field_pbundle_title'
-  $field_instances['paragraphs_item-section-field_pbundle_title'] = array(
-    'bundle' => 'section',
+  // Exported field_instance: 'paragraphs_item-container-field_pbundle_title'
+  $field_instances['paragraphs_item-container-field_pbundle_title'] = array(
+    'bundle' => 'container',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -814,9 +814,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section_item-field_pbundle_css_classes'
-  $field_instances['paragraphs_item-section_item-field_pbundle_css_classes'] = array(
-    'bundle' => 'section_item',
+  // Exported field_instance: 'paragraphs_item-quick_item-field_pbundle_css_classes'
+  $field_instances['paragraphs_item-quick_item-field_pbundle_css_classes'] = array(
+    'bundle' => 'quick_item',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -888,9 +888,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section_item-field_pbundle_destination'
-  $field_instances['paragraphs_item-section_item-field_pbundle_destination'] = array(
-    'bundle' => 'section_item',
+  // Exported field_instance: 'paragraphs_item-quick_item-field_pbundle_destination'
+  $field_instances['paragraphs_item-quick_item-field_pbundle_destination'] = array(
+    'bundle' => 'quick_item',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -1000,9 +1000,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section_item-field_pbundle_image'
-  $field_instances['paragraphs_item-section_item-field_pbundle_image'] = array(
-    'bundle' => 'section_item',
+  // Exported field_instance: 'paragraphs_item-quick_item-field_pbundle_image'
+  $field_instances['paragraphs_item-quick_item-field_pbundle_image'] = array(
+    'bundle' => 'quick_item',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1133,9 +1133,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section_item-field_pbundle_text'
-  $field_instances['paragraphs_item-section_item-field_pbundle_text'] = array(
-    'bundle' => 'section_item',
+  // Exported field_instance: 'paragraphs_item-quick_item-field_pbundle_text'
+  $field_instances['paragraphs_item-quick_item-field_pbundle_text'] = array(
+    'bundle' => 'quick_item',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -1231,9 +1231,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section_item-field_pbundle_title'
-  $field_instances['paragraphs_item-section_item-field_pbundle_title'] = array(
-    'bundle' => 'section_item',
+  // Exported field_instance: 'paragraphs_item-quick_item-field_pbundle_title'
+  $field_instances['paragraphs_item-quick_item-field_pbundle_title'] = array(
+    'bundle' => 'quick_item',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -1355,9 +1355,9 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-section_item-field_pbundle_view_mode'
-  $field_instances['paragraphs_item-section_item-field_pbundle_view_mode'] = array(
-    'bundle' => 'section_item',
+  // Exported field_instance: 'paragraphs_item-quick_item-field_pbundle_view_mode'
+  $field_instances['paragraphs_item-quick_item-field_pbundle_view_mode'] = array(
+    'bundle' => 'quick_item',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -1665,8 +1665,8 @@ function agov_paragraphs_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'paragraphs_item-view-field_pbundle_section_layout'
-  $field_instances['paragraphs_item-view-field_pbundle_section_layout'] = array(
+  // Exported field_instance: 'paragraphs_item-view-field_pbundle_container_layout'
+  $field_instances['paragraphs_item-view-field_pbundle_container_layout'] = array(
     'bundle' => 'view',
     'default_value' => array(
       0 => array(
@@ -1720,8 +1720,8 @@ function agov_paragraphs_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'paragraphs_item',
-    'field_name' => 'field_pbundle_section_layout',
-    'label' => 'Section layout',
+    'field_name' => 'field_pbundle_container_layout',
+    'label' => 'container layout',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1918,8 +1918,8 @@ function agov_paragraphs_field_default_field_instances() {
   t('Destination');
   t('Image');
   t('Node');
-  t('Section content');
-  t('Section layout');
+  t('Container content');
+  t('Container layout');
   t('Text');
   t('Title');
   t('View');

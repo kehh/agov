@@ -50,11 +50,11 @@ function agov_paragraphs_entity_view($entity, $type, $view_mode, $langcode) {
     }
 
     // Process any Paragraphs with layout settings.
-    // These come from the field "field_pbundle_section_layout".
-    if (isset($entity->field_pbundle_section_layout[LANGUAGE_NONE][0]) && !empty($entity->field_pbundle_section_layout[LANGUAGE_NONE][0])) {
+    // These come from the field "field_pbundle_container_layout".
+    if (isset($entity->field_pbundle_container_layout[LANGUAGE_NONE][0]) && !empty($entity->field_pbundle_container_layout[LANGUAGE_NONE][0])) {
 
-      // Section arrangements are defined by the Arrangement entity.
-      $arrangements = entity_load('arrangement', array($entity->field_pbundle_section_layout[LANGUAGE_NONE][0]['target_id']));
+      // Container arrangements are defined by the Arrangement entity.
+      $arrangements = entity_load('arrangement', array($entity->field_pbundle_container_layout[LANGUAGE_NONE][0]['target_id']));
       $arrangement = reset($arrangements);
 
       $layout_class = 'paragraphs-layout__' . drupal_html_class($arrangement->field_machine_name[LANGUAGE_NONE][0]['value']);
@@ -62,9 +62,9 @@ function agov_paragraphs_entity_view($entity, $type, $view_mode, $langcode) {
       // Any other usage should apply to the root element. This may not work
       // in any given case, since the element children may not be the right
       // kind to get the layout classes.
-      if ($entity->bundle == 'section') {
-        // Sections apply layout to the section_content field.
-        $entity->content['field_pbundle_section_content']['#attributes']['class'][] = $layout_class;
+      if ($entity->bundle == 'container') {
+        // Containers apply layout to the container_content field.
+        $entity->content['field_pbundle_container_content']['#attributes']['class'][] = $layout_class;
         unset($layout_class);
       }
       elseif ($entity->bundle == 'view') {

@@ -80,19 +80,19 @@ a :focus {
   color: #FFF;
 }
 
-.section__highlighted {
+.container__highlighted {
   background: #006893;
   color: #fff;
 }
-.section__highlighted a {
+.container__highlighted a {
   color: white;
 }
-.section__highlighted h2, .section__highlighted h3 {
+.container__highlighted h2, .container__highlighted h3 {
   color: #fff;
 }
-.section__highlighted .field-item {
+.container__highlighted .field-item {
   border-left: 1px solid white;
 }
-.section__highlighted .field-item:first-child {
+.container__highlighted .field-item:first-child {
   border-left: none;
 }
