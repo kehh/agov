@@ -1,0 +1,44 @@
+<?php
+/**
+ * @file
+ * Code for the aGov Arrangements feature.
+ */
+
+include_once 'agov_arrangements.features.inc';
+
+
+/**
+ * Callback to install some default arrangement types.
+ *
+ * These should be in agov_arrangements, but the install hook is called
+ * too early.
+ */
+function _agov_arrangements_default_arrangements() {
+
+  cache_clear_all();
+
+  $arrangements = array(
+    'full' => array(
+      'title' => 'Full width',
+    ),
+    'tiles_2' => array(
+      'title' => 'Tiled (2 across)',
+    ),
+    'tiles_3' => array(
+      'title' => 'Tiled (3 across)',
+    ),
+    'tiles_4' => array(
+      'title' => 'Tiled (4 across)',
+    ),
+    'tiles_5' => array(
+      'title' => 'Tiled (5 across)',
+    ),
+  );
+
+  foreach ($arrangements as $arr_key => $settings) {
+    $settings['field_machine_name'][LANGUAGE_NONE][0]['value'] = $arr_key;
+    $settings['type'] = 'arrangement';
+    $entity = entity_create('arrangement', $settings);
+    entity_save('arrangement', $entity);
+  }
+}

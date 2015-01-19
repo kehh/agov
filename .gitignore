@@ -1,6 +1,7 @@
 .vagrant
 .sass-cache
 .ruby-version
+.bundle
 /behat.local.yml
 /bin/*
 /vendor/*

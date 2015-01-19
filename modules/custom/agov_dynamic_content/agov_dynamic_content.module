@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Dynamic Content module file
+ *
+ * @license GPL v2 http://www.fsf.org/licensing/licenses/gpl.html
+ * @author Chris Skene chris at previousnext dot com dot au
+ * @copyright Copyright(c) 2015 Previous Next Pty Ltd
+ */
+
+
+/**
+ * Implements hook_defaultconfig_user_default_permissions().
+ */
+function agov_dynamic_content_defaultconfig_user_default_permissions() {
+  $permissions = array();
+
+  $base_permissions = _agov_dynamic_content_get_permissions();
+  foreach ($base_permissions as $module => $module_permissions) {
+    foreach ($module_permissions as $permission_key => $permission) {
+      $permissions[$permission_key] = array(
+        'name' => $permission_key,
+        'roles' => $permission['roles'],
+        'module' => $module,
+      );
+    }
+  }
+
+  return $permissions;
+}
+
+/**
+ * Get module permissions.
+ *
+ * @return array
+ *   An array of permissions.
+ */
+function _agov_dynamic_content_get_permissions() {
+  return array();
+}

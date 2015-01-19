@@ -1,0 +1,13 @@
+name = Styles
+description = Provides a Style entity
+core = 7.x
+package = aGov Dynamic Content
+dependencies[] = eck
+dependencies[] = eck
+dependencies[] = features
+dependencies[] = text
+features[eck_bundle][] = style_style
+features[eck_entity_type][] = style
+features[features_api][] = api:2
+features[field_base][] = field_style_classes
+features[field_instance][] = style-style-field_style_classes

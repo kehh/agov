@@ -69,7 +69,7 @@ function agov_basic_page_strongarm() {
         'custom_settings' => FALSE,
       ),
       'teaser' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rss' => array(
         'custom_settings' => FALSE,
@@ -84,6 +84,15 @@ function agov_basic_page_strongarm() {
         'custom_settings' => FALSE,
       ),
       'feature' => array(
+        'custom_settings' => FALSE,
+      ),
+      'compact' => array(
+        'custom_settings' => TRUE,
+      ),
+      'embed' => array(
+        'custom_settings' => TRUE,
+      ),
+      'revision' => array(
         'custom_settings' => FALSE,
       ),
     ),

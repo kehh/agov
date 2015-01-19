@@ -65,7 +65,7 @@
   <target name="validate:all" depends="validate:phpcs, validate:phpsa, validate:make" description="Validate the source code" />
 
   <target name="validate:phpcs" description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server.">
-    <exec command="${project.basedir}/bin/phpcs --standard=${codestyle.standard.drupal} --extensions=${codestyle.extensions} ${src.custom.modules}" logoutput="true" passthru="true" checkreturn="true" />
+    <exec command="${project.basedir}/bin/phpcs --standard=${codestyle.standard.drupal} --ignore=*features* --extensions=${codestyle.extensions} ${src.custom.modules}" logoutput="true" passthru="true" checkreturn="true" />
     <exec command="${project.basedir}/bin/phpcs --standard=${codestyle.standard.drupal} --extensions=${codestyle.extensions} ${src.custom.themes}" logoutput="true" passthru="true" checkreturn="true" />
   </target>
 

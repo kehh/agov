@@ -52,7 +52,7 @@ The <em>body</em> field is used for the main article content.
           'trim_length' => 600,
         ),
         'type' => 'text_summary_or_trimmed',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'ds_extras_field_template' => '',
@@ -102,6 +102,13 @@ The <em>body</em> field is used for the main article content.
         'weight' => 0,
       ),
       'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'module' => 'file',
         'settings' => array(),
@@ -169,6 +176,16 @@ The <em>body</em> field is used for the main article content.
         'weight' => 0,
       ),
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'article_page_620x349',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'teaser' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
