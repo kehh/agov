@@ -1,0 +1,17 @@
+// Autocomplete.
+//
+// @see autocomplete.js
+//
+// Style guide: components.forms.autocomplete
+
+.autocomplete__suggestions,
+%autocomplete__suggestions {
+  background: #0072b9;
+  color: #fff;
+}
+
+// Fugly selectors.
+
+#autocomplete .selected {
+  @extend %autocomplete__suggestions;
+}

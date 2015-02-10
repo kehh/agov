@@ -1,5 +1,5 @@
 .front .page__title {
-  @include element-invisible;
+  @extend %visually-hidden;
 }
 
 .front .breadcrumb {

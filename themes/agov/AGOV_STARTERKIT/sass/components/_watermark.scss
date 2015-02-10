@@ -1,0 +1,43 @@
+// Watermark
+//
+// Used to display a short message in the layer beneath some other content. e.g.
+// the word "Unpublished" displayed underneath a piece of unpublished content.
+//
+// Style guide: components.watermark
+
+.watermark,
+%watermark {
+  height: 0;
+  overflow: visible;
+  /* Remove background highlighting from <mark> in normalize. */
+  background-color: transparent;
+  color: #d8d8d8;
+  font-size: 75px;
+  line-height: 1;
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  /* A very nice CSS3 property. */
+  word-wrap: break-word;
+}
+.watermark__wrapper,
+%watermark__wrapper {
+  @if support-legacy-browser(ie, "7") {
+    /* Otherwise these elements will appear below the "Unpublished" text. */
+    position: relative;
+  }
+}
+
+// Fugly selectors.
+
+/* The word "Unpublished" displayed underneath the content. */
+.unpublished {
+  @extend %watermark;
+}
+.lt-ie8 {
+  .node-unpublished>*,
+  .comment-unpublished>* {
+    @extend %watermark__wrapper !optional;
+  }
+}

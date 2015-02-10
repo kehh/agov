@@ -1,24 +1,23 @@
-/**
- * Collapsible fieldsets.
- *
- * @see collapse.js
- */
+// Collapsible fieldsets
+//
+// Styleguide: components.collapsible-fieldsets
+
 .fieldset-legend {
   html.js .collapsible & {
     background-image: inline-image("menu-expanded.png");
     @if support-legacy-browser(ie, "7") {
       *background-image: image-url("menu-expanded.png");
     }
-    background-position: 5px 65%; /* LTR */
+    background-position: 5px 65%;
     background-repeat: no-repeat;
-    padding-left: 15px; /* LTR */
+    padding-left: 15px;
   }
   html.js .collapsed & {
-    background-image: inline-image("menu-collapsed.png"); /* LTR */
+    background-image: inline-image("menu-collapsed.png");
     @if support-legacy-browser(ie, "7") {
-      *background-image: image-url("menu-collapsed.png"); /* LTR */
+      *background-image: image-url("menu-collapsed.png");
     }
-    background-position: 5px 50%; /* LTR */
+    background-position: 5px 50%;
   }
   .summary {
     color: #999;

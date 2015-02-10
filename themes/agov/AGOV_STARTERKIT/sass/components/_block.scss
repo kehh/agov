@@ -1,0 +1,20 @@
+// Blocks.
+
+%block {
+  @include output-rhythm(margin-bottom, rhythm(1));
+}
+
+.block__title,
+%block__title {
+  margin: 0;
+}
+
+// Fugly selectors.
+
+.block {
+  #main &,
+  .region-highlighted &,
+  .sidebar & {
+    @extend %block;
+  }
+}

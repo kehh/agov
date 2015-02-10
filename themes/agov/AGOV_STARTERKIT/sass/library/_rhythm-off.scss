@@ -1,4 +1,10 @@
-@mixin rhythm-off {
+// rhythm-off()
+//
+// Removes any top or bottom margin or padding.
+//
+// Style guide: sass.mixins.rhythm-off
+
+@mixin rhythm-off() {
   margin: {
     top: 0;
     bottom: 0;

@@ -17,7 +17,7 @@ footer .block {
 }
 
 .region-footer .block-title {
-  @extend %element-invisible;
+  @extend %visually-hidden;
 }
 
 // Layout for footer promos
@@ -60,7 +60,11 @@ footer .block {
         @include reset-baseline;
       }
       a {
-        @include underline-on-hover;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

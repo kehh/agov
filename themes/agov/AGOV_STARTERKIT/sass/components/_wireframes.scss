@@ -1,0 +1,23 @@
+// Wireframes
+//
+// Style guide: components.wireframes
+
+.with-wireframes {
+  #header,
+  #main,
+  #content,
+  #navigation,
+  .region-sidebar-first,
+  .region-sidebar-second,
+  #footer,
+  .region-bottom {
+    outline: 1px solid #ccc;
+
+    @if support-legacy-browser(ie, "7") {
+      .lt-ie8 & {
+        /* IE6/7 do not support the outline property. */
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}

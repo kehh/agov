@@ -1,0 +1,18 @@
+// Marker
+//
+// The "new" or "updated" marker.
+//
+// Style guide: components.marker
+
+.marker,
+%marker {
+  color: #c00;
+  /* Remove background highlighting from <mark> in normalize. */
+  background-color: transparent;
+}
+
+// Fugly selectors.
+.new,
+.update {
+  @extend %marker;
+}

@@ -1,5 +1,9 @@
-%centered-box,
-.centered-box {
+// Centered Box
+//
+// Styleguide: components.centered-box
+
+.centered-box,
+%centered-box {
   max-width: 400px;
   text-align: center;
   margin: 100px auto 0;
@@ -15,13 +19,13 @@
   padding: 20px;
 }
 
-%centered-box__image,
-.centered-box__image {
+.centered-box__image,
+%centered-box__image {
   margin: 0 auto;
 }
 
-%centered-box__title,
-.centered-box__title {
+.centered-box__title,
+%centered-box__title {
   margin-top: 1em;
   font-weight: bold;
   line-height: 1.2;

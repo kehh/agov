@@ -1,11 +1,12 @@
 // Functional
 .rslides {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-image: none;
   position: relative;
-  list-style: none;
   overflow: hidden;
   width: 100%;
-  padding: 0;
-  margin: 0;
 }
 
 .rslides li {
@@ -57,7 +58,7 @@
 
 // Theme
 #block-views-slideshow-block {
-  .block-title { @extend %element-invisible; }
+  .block-title { @extend %visually-hidden; }
   .field-name-field-slide-image {
     margin: 0;
     img {

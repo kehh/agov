@@ -1,4 +1,10 @@
-@mixin print-none {
+// print-none()
+//
+// Removes an element from the print out of a web page.
+//
+// Style guide: sass.mixins.print-none()
+
+@mixin print-none() {
   @media print {
     visibility: hidden;
     display: none;

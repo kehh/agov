@@ -340,7 +340,7 @@ ol {
 }
 
 ul {
-  list-style-type: square;
+  list-style-type: disc;
 }
 
 /**
@@ -370,6 +370,10 @@ ul {
 
 ol {
   padding: 0 0 0 19px;
+}
+
+li {
+  margin-bottom: 5px;
 }
 
 @if support-legacy-browser(ie, "7") {

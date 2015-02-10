@@ -1,0 +1,9 @@
+.padded,
+%padded {
+  padding: 1em;
+}
+
+// Fugly selector.
+div.workbench-info-block {
+  @extend %padded;
+}

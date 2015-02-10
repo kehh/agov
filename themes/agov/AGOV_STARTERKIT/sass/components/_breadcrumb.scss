@@ -1,0 +1,24 @@
+// Breadcrumb navigation
+//
+// Style guide: components.breadcrumb
+
+.breadcrumb,
+%breadcrumb {
+  padding: rhythm(1);
+  border-bottom: solid 3px $color-primary;
+  @include adjust-font-size-to(12px);
+
+  @include print-none();
+
+  ol {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}

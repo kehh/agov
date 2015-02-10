@@ -1,0 +1,28 @@
+// "More" link
+//
+// Style guide: components.more-link
+
+.more-link,
+%more-link {
+  text-align: right;
+}
+
+.more-link--help__icon,
+%more-link--help__icon {
+  background-image: inline-image("help.png");
+  @if support-legacy-browser(ie, "7") {
+    *background-image: image-url("help.png");
+  }
+  background-position: 0 50%;
+  background-repeat: no-repeat;
+  padding: 1px 0 1px 20px;
+}
+
+// Fugly selectors.
+.more-help-link {
+  @extend %more-link;
+
+  a{
+    @extend %more-link--help__icon;
+  }
+}

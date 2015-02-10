@@ -1,4 +1,10 @@
-@mixin adaptively-centered {
+// adaptively-centered()
+//
+// Centers an element in an adaptive, rather than responsive, way.
+//
+// Style guide: sass.mixins.adaptively-centered
+
+@mixin adaptively-centered() {
   margin: {
     left: auto;
     right: auto;

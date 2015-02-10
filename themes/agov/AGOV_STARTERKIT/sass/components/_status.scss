@@ -1,0 +1,45 @@
+// Status indicators
+//
+// Foreground and background colors needed to indicate the status of something.
+//
+// .status--ok      - Normal state
+// .status--warning - Warning state
+// .status--error   - Error state
+//
+// Style guide: components.status
+
+.status--ok,
+%status--ok {
+  background-color: #f8fff0;
+  color: #234600;
+}
+
+.status--warning,
+%status--warning {
+  background-color: #fffce5;
+  color: #840;
+}
+
+.status--error,
+%status--error {
+  background-color: #fef5f1;
+  color: #8c2e0b;
+}
+
+// Drupal selectors.
+
+// System status report.
+.ok {
+  @extend %status--ok;
+}
+.warning {
+  @extend %status--warning;
+}
+.error {
+  @extend %status--error;
+}
+
+// Node revisions.
+.revision-current {
+  @extend %status--ok;
+}
