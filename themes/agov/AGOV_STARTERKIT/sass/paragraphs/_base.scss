@@ -92,10 +92,12 @@
       float: none;
     }
     .field-name-field-pbundle-image {
-      @include field-image-left-float;
+      width: 35%;
+      margin-right: rhythm(1);
     }
     .field-name-field-pbundle-text {
-      @include field-text-right-float;
+      width: 60%;
+      clear: none;
     }
   }
 }
