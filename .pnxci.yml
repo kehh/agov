@@ -10,10 +10,10 @@ test: &test
     - phing site-install -Ddb.name=drupal_local -Ddb.username=drupal -Ddb.password=drupal -Ddb.host=localhost
     - chown -R www-data:www-data app/sites/default/files
     - chown -R www-data:www-data app/sites/default/private
+    - echo "\$base_url = 'https://$DOMAIN';" >> app/sites/default/settings.php
 
 test_pr:
   <<: *test
 
 test_head:
   <<: *test
-
