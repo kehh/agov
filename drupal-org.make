@@ -16,6 +16,7 @@ projects[breakpoints][version] = "1.3"
 projects[ccl][version] = "1.5"
 projects[chosen][patch][] = https://drupal.org/files/2021639-pin-chosen-26.patch
 projects[chosen][version] = 2.0-alpha2
+projects[configuration][version] = 2.0-alpha3
 projects[context][version] = "3.6"
 projects[crumbs][version] = "2.3"
 projects[ctools][version] = "1.6"
@@ -156,6 +157,7 @@ projects[wysiwyg][patch][] = "https://drupal.org/files/wysiwyg-857362-selection-
 projects[wysiwyg][patch][] = "https://www.drupal.org/files/wysiwyg-html5-required-1338956-11.patch"
 projects[wysiwyg][version] = "2.2"
 projects[wysiwyg_filter][version] = "1.6-rc2"
+projects[xautoload][version] = "5.1"
 projects[xmlsitemap][version] = "2.2"
 
 ; aGov
