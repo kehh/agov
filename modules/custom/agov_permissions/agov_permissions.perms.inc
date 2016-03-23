@@ -277,15 +277,6 @@ function agov_permissions_base_permissions() {
         ),
       ),
     ),
-    'agov_appearance' => array(
-      'administer theme settings' => array(
-        'roles' => array(
-          0 => 'Site editor',
-          1 => 'Site builder',
-          2 => 'administrator',
-        ),
-      ),
-    ),
     'workbench_moderation' => array(
       'administer workbench moderation' => array(
         'roles' => array(

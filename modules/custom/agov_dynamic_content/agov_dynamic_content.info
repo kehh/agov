@@ -1,6 +1,0 @@
-name = Dynamic Content
-description = Provides complex Paragraphs integration for dynamic and interesting content
-core = 7.x
-package = aGov Dynamic Content
-
-dependencies[] = agov_landing_pages

@@ -1,4 +1,81 @@
 aGov Changelog
+==============
+
+7.x-2.1
+=======
+
+* 39adf51: Update .pnxci.yml - Nick Schuch
+* 1241e64: Module updates - Kim Pepper
+* e0f64cf: Removes redirect patch - Kim Pepper
+* ce6261a: [security] Drupal core 7.39 and ctools 1.9 - Kim Pepper
+
+7.x-2.0
+=======
+
+* acf982d: 28175 ckeditor media fix - Kim Pepper
+
+7.x-2.0-rc2
+===========
+* e45cf1c: [#33088] Added an accessible alt tag for logo - vagrant
+* 77ca380: 33120 Update admin views to 7.x-1.5 - Kim Pepper
+* 75c6b85: 28175 Update ckeditor to 4.5.1 - Kim Pepper
+* c11c05e: 28175 Update wysiwyg - Kim Pepper
+
+7.x-2.0-rc1
+===========
+
+* 92b312b: [#27820] Fix code indentation. - JohnAlbin
+* 5943f90: [#27820] Add accessible, but visually-hidden site name and slogan. - JohnAlbin
+* 8936515: [#32818] Remove Fields marked * are required. from contact form - David Forbes
+* ad5096e: [#32819] Remove read more link from publications - David Forbes
+* 2c8d9bd: [#32876] security update: Views Bulk Operations (VBO): 7.x-3.2 > 7.x-3.3 - David Forbes
+* 83bd5cc: Revert "[#32876] security update: Views Bulk Operations (VBO): 7.x-3.2 > 7.x-3.3" - David Forbes
+* eca6582: [#32876] Revert adding views_bulk_operation to repo and change projects[views_bulk_operations][version] = 3.3 in make file - David Forbes
+* fe34498: 32816 Fix colour contrast ratio in blocks - Kim Pepper
+* 2fd1892: 32816 Fix placeholder colour contrast ratio - Kim Pepper
+* 0073f22: 32911 remove unused modules - Kim Pepper
+* 5a11a56: Update changelog for 7.x-2.0-rc1 release - Kim Pepper
+
+
+7.x-2.0-beta4
+=============
+
+* 9f3c973: Removes agov_dynamic_content - Kim Pepper
+* 832f3f0: Drupal core security update 7.38 - Kim Pepper
+* 863c789: Fixes 2.x env pass. - Nick Schuch
+* cb4fd50: [#32483] Updates accessible_form, paranoia, and honeypot - Kim Pepper
+
+7.x-2.0-beta3
+==============
+
+* 7494c54: Moves agov_ips to its own project - Kim Pepper
+* 5e4ef58: [security] 30774 Update display suite - Kim Pepper
+* a40aa0f: Vagrant and PNXCI updates - Nick Schuch
+* f94f50d: 31179 views security update - Kim Pepper
+* e244c35: 31179 Service links module update - Kim Pepper
+* 627a484: [#31866] Fixes accessibility by adding a label for tinynav - Kim Pepper
+* 3fdd76d: 31866 allow for multiple tiny navs - rikki_iki
+* 9663f8b: [#31865] set base text colour of header and footer - rikki_iki
+* edf6419: [#31865] set base text colour of slideshow and nav - rikki_iki
+* 945c58c: [#31865] hidden elements should inherit parent colour - rikki_iki
+* 6ca0677: [#31882] Adds missing img alt text on default content - Kim Pepper
+* 8a59b0d: [#31917] Update to media alpha3 and fix browser patch - Cameron Zemek
+* 6b65d4d: [#31865] force invisible elements to inherit parent colour - rikki_iki
+* cf14aa4: [#31917] Updates media to alpha3 and file entity to beta1 - Kim Pepper
+* b38373f: Removes agov_minisites - Kim Pepper
+* 1db11c7: Removes unused paragraphs styles modules - Kim Pepper
+* 9457963: Remove dependency on agov_appearance - Kim Pepper
+* a708374: Adds phing login command - Kim Pepper
+* 5cf1d7a: Remove agov_appearance perms - Kim Pepper
+* a21ca5b: 31179 Updates Drupal core to 7.37 - Kim Pepper
+* 8df21cd: 31179 Updates event log to 7.x-1.5 - Kim Pepper
+* 7ddee48: 31179 Updates display suite to 7.x-2.10 - Kim Pepper
+* d93c0fd: 31179 Updates menu block to 7.x-2.6 - Kim Pepper
+* 1ce668b: 32121 Removes google analytics reports and dependencies - Kim Pepper
+* 239f0f6: [#32121] Remove ga reports perms - Kim Pepper
+* 7670d62: 31179 Updates search api and search api pages - Kim Pepper
+* 8078113: 31179 Updates webform to 7.x-4.9 - Kim Pepper
+
 
 7.x-2.0-beta2
 ==============

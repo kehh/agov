@@ -2,6 +2,7 @@
   @include inline-list;
   a {
     @include hide-text;
+    color: inherit;
     display: inline-block;
     width: 26px;
     height: 26px;

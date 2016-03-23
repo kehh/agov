@@ -1,165 +1,153 @@
 <project name="agov" default="build">
 
-  <property name="app.uri" value="http://agov.dev" />
-  <property name="codestyle.standard.drupal" value="vendor/drupal/coder/coder_sniffer/Drupal" />
-  <property name="codestyle.standard.security" value="vendor/nickschuch/phpcs-security-audit/Security" />
-  <property name="codestyle.standard.security.src" value="vendor/nickschuch/phpcs-security-audit/example_drupal7_ruleset.xml" />
-  <property name="codestyle.extensions" value="php,module,inc,install,test,profile,theme" />
-  <property name="src.profile.dir" value="profiles/agov" />
-  <property name="src.custom.modules" value="modules/custom" />
-  <property name="src.custom.themes" value="themes/agov" />
-  <property name="build.dir" value="build" />
-  <property name="build.drupal.dir" value="${project.basedir}/../agov-build" />
-  <property name="build.profile.dir" value="${build.drupal.dir}/profiles/agov" />
-  <property name="build.symlink.source" value="${project.basedir}" />
-  <property name="db.username" value="agov" />
-  <property name="db.password" value="agov" />
-  <property name="db.name" value="agov" />
-  <property name="db.host" value="agov.dev" />
-  <property name="drush.cmd" value="${project.basedir}/bin/drush" />
+  <!--         -->
+  <!-- Imports -->
+  <!-- ======= -->
+
+  <import file="vendor/previousnext/phing-phpqatools/build.xml" optional="true" />
+  <import file="vendor/previousnext/phing-behat/build.xml"      optional="true" />
+
+  <!--            -->
+  <!-- Properties -->
+  <!-- ========== -->
+
+  <!-- Application --> 
+  <property name="app.uri"             value="http://agov.dev"                           override="true" />
+  <property name="app.name"            value="aGov"                                      override="true" />
+  <property name="app.dir"             value="${project.basedir}/app"                    override="true" />
+  <property name="app.profile.name"    value="agov"                                      override="true" />
+  <property name="app.profile.dir"     value="profiles/agov"                             override="true" />
+  <property name="app.profile.options" value="agov_install_additional_options.install=1" override="true" />
+  <property name="app.files.public"    value="sites/default/files"                       override="true" />
+  <property name="app.files.tmp"       value="sites/default/files/tmp"                   override="true" />
+  <property name="app.files.private"   value="sites/default/private"                     override="true" />
+  <!-- This should get overidden for secure builds. -->
+  <property name="app.password"        value="password"                                  override="true" />
+
+  <!-- Drush -->
+  <property name="drush.cmd" value="${project.basedir}/bin/drush" override="true" />
+
+  <!-- Database -->
+  <property name="db.querystring" value="mysql://drupal:drupal@localhost/local" override="true" />
+
+  <!-- These allow developers to override configuration on
+       a per environment basis -->
   <property file="build.properties" override="true"/>
 
-  <target name="build" depends="clean:all, prepare:all, validate:all, make, site-install, test:all, login" description="Build the project" />
+  <!--              -->
+  <!-- Meta targets -->
+  <!-- ============ -->
 
-  <target name="build-no-tests" depends="clean:all, prepare:all, validate:all, make, site-install, login" description="Build the project" />
-
-  <target name="build-no-make" depends="validate:phpcs, validate:phpmd, site-install, test:all, login" description="Build the project without make. Good for clean installs without re-downloading components" />
-
-  <target name="build-no-make-no-tests" depends="validate:phpcs, validate:phpmd, site-install, login" description="Build the project without make or tests. Good for fast re-installs." />
-
-  <target name="build-no-install" depends="clean:all, prepare:all, validate:all, make" description="Builds the project without running the installer. Good for manual installer testing." />
-
-  <target name="clean:all" description="Clean the build environment">
-    <phingcall target="fix-perms" />
-    <delete dir="${build.drupal.dir}" />
-    <delete dir="${build.dir}" />
-    <delete dir="modules/contrib"/>
-    <delete dir="themes/contrib"/>
-    <delete dir="libraries"/>
+  <target name="build"
+          depends="clean, prepare, make, install"
+          description="Build (or rebuild) the project.">
   </target>
 
-  <target name="fix-perms">
-    <if><available file="${build.drupal.dir}/sites/default" type="dir" property="available.sites.default"/>
-    <then>
-      <chmod file="${build.drupal.dir}/sites/default" mode="2775" />
-    </then>
+  <target name="test"
+          depends="phpcs, behat"
+          description="Run the test suite">
+  </target>
+
+  <!--                  -->
+  <!-- Standard targets -->
+  <!-- ================ -->
+
+  <target name="clean" description="Cleans up autogenerated files">
+    <!-- Destroy -->
+    <if>
+      <available file="${app.dir}" type='dir' />
+      <then>
+        <exec command="sudo chmod -R 2775 ${app.dir}"
+              logoutput="true"
+              passthru="true"
+              checkreturn="true" />
+        <exec command="sudo rm -fR ${app.dir}"
+              logoutput="true"
+              passthru="true"
+              checkreturn="true" />
+      </then>
     </if>
+    <delete >
+      <fileset dir="${project.basedir}">
+        <include name="modules/contrib/" />
+        <include name="themes/contrib/" />
+      </fileset>
+    </delete>
   </target>
 
-  <target name="prepare:all" depends="prepare:dirs, prepare:composer" description="Prepares the project for building"/>
+  <target name="prepare"
+          description="Setup the project">
 
-  <target name="prepare:dirs" description="Prepare for build">
-    <mkdir dir="${build.drupal.dir}/profiles" />
-    <mkdir dir="${build.drupal.dir}/sites/default/files" />
-    <chmod file="${build.drupal.dir}/sites/default/files" mode="2775" />
-    <mkdir dir="${build.drupal.dir}/sites/default/files/tmp" />
-    <mkdir dir="${build.drupal.dir}/sites/default/private" />
-    <chmod file="${build.drupal.dir}/sites/default/private" mode="2775" />
-    <symlink link="${build.drupal.dir}/profiles/agov" target="${build.symlink.source}" />
-  </target>
-
-  <target name="prepare:composer" description="Prepares the composer dependencies" >
-    <!-- Install common packages -->
-    <exec command="composer install --prefer-dist" logoutput="true" passthru="true"/>
-    <copy file="${codestyle.standard.security.src}" tofile="${codestyle.standard.security}/ruleset.xml" overwrite="true" />
-  </target>
-
-  <target name="validate:all" depends="validate:phpcs, validate:phpsa, validate:make" description="Validate the source code" />
-
-  <target name="validate:phpcs" description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server.">
-    <exec command="${project.basedir}/bin/phpcs --standard=${codestyle.standard.drupal} --ignore=*features* --extensions=${codestyle.extensions} ${src.custom.modules}" logoutput="true" passthru="true" checkreturn="true" />
-    <exec command="${project.basedir}/bin/phpcs --standard=${codestyle.standard.drupal} --extensions=${codestyle.extensions} ${src.custom.themes}" logoutput="true" passthru="true" checkreturn="true" />
-  </target>
-
-  <target name="validate:phpsa"
-          description="phpcs-security-audit is a set of PHP_CodeSniffer rules that finds flaws or weaknesses related to security in PHP and its popular CMS or frameworks.">
-    <exec command="${project.basedir}/bin/phpcs --standard=${codestyle.standard.security} --extensions=${codestyle.extensions} ${src.custom.modules}"
+    <!-- Create -->
+    <exec command="mkdir -p ${app.dir}/${app.files.public} ${app.dir}/${app.files.tmp} ${app.dir}/${app.files.private} ${app.dir}/${app.profile.dir}"
           logoutput="true"
-          checkreturn="false" />
-    <exec command="${project.basedir}/bin/phpcs --standard=${codestyle.standard.security} --extensions=${codestyle.extensions} ${src.custom.themes}"
+          passthru="true"
+          checkreturn="true" />
+
+    <!-- Permissions -->
+    <exec command="chmod -R 2775 ${app.dir}/${app.files.public} ${app.dir}/${app.files.tmp} ${app.dir}/${app.files.private}"
           logoutput="true"
-          checkreturn="false" />
+          passthru="true"
+          checkreturn="true" />
+
+    <!-- Symlink only the profile things we require.
+         Otherwise we will end up with a recursive loop. -->
+    <symlink link="${app.dir}/${app.profile.dir}">
+      <fileset dir="${project.basedir}">
+        <include name="agov.info" />
+        <include name="agov.install" />
+        <include name="agov.profile" />
+        <include name="modules" />
+        <include name="themes" />
+        <include name="images" />
+        <include name="drupal-org.make" />
+        <include name="drupal-org-core.make" />
+      </fileset>
+    </symlink>
   </target>
 
-  <target name="check:upgrade" description="Checks if we are testing an upgrade and if so, sets a property.">
-    <condition property="is.upgrade">
-      <contains string="${env.UPGRADE}" substring="7.x"/>
-    </condition>
-  </target>
-
-  <target name="prepare:upgrade" depends="check:upgrade" if="is.upgrade" description="Downloads a previous aGov version to be updated.">
-    <exec command="${drush.cmd} dl agov-${env.UPGRADE} --destination=.. --drupal-project-rename=drupal --yes" logoutput="true" passthru="true" checkreturn="true"/>
-  </target>
-
-  <target name="upgrade" depends="check:upgrade" if="is.upgrade" description="Upgrades previous aGov version with the latest.">
-    <copy todir="${build.profile.dir}">
-      <fileset dir="${project.basedir}"/>
-    </copy>
-    <exec dir="${build.drupal.dir}" command="${drush.cmd} updb -y" logoutput="true" passthru="true" />
-  </target>
-
-  <target name="validate:phpmd" description="Find code complexity issues">
-    <exec command="bin/phpmd ${src.custom.modules} text phpmd.xml --exclude '*views*,*features*,*strongarm*,*field_group*'" logoutput="true" passthru="true" checkreturn="true" />
-    <exec command="bin/phpmd ${src.custom.themes} text phpmd.xml --exclude '*views*'" logoutput="true" passthru="true" checkreturn="true" />
-  </target>
-
-  <target name="validate:make" description="Verify the ${drush.cmd} makefile is valid for d.o">
-    <exec command="${drush.cmd} dl -y drupalorg_drush-7.x-1.x-dev --destination=${user.home}/.drush" logoutput="true" passthru="true" />
-    <exec command="${drush.cmd} cc drush" logoutput="true" passthru="true" />
-    <exec command="${drush.cmd} verify-makefile" logoutput="true" passthru="true" checkreturn="true"/>
-  </target>
-
-  <target name="make" depends="prepare:dirs, fix-perms" description="Build Drupal and contrib core modules from a make file">
-    <exec dir="${build.drupal.dir}" command="${drush.cmd} make -y profiles/agov/drupal-org.make --no-core --contrib-destination=profiles/agov" checkreturn="true" logoutput="true" passthru="true"/>
-    <exec dir="${build.drupal.dir}" command="${drush.cmd} make -y profiles/agov/drupal-org-core.make --prepare-install" checkreturn="true" logoutput="true" passthru="true"/>
-  </target>
-
-  <target name="site-install" depends="fix-perms" description="Install Drupal on a clean database">
-    <exec dir="${build.drupal.dir}" command="${drush.cmd} site-install agov -y --site-name=aGov --db-url=mysql://${db.username}:${db.password}@${db.host}/${db.name} agov_install_additional_options.install=1 agov" logoutput="true" passthru="true" />
-    <exec dir="${build.drupal.dir}" command="${drush.cmd} vset -y file_private_path 'sites/default/private'" logoutput="true" passthru="true" />
-    <exec dir="${build.drupal.dir}" command="${drush.cmd} vset -y file_temporary_path 'sites/default/files/tmp'" logoutput="true" passthru="true" />
-  </target>
-
-  <target name="test:all" depends="test:behat" description="Run all tests" />
-
-  <target name="behat:init">
-    <copy file="behat.example.yml" tofile="behat.local.yml" overwrite="true">
-      <filterchain><expandproperties /></filterchain>
-    </copy>
-  </target>
-
-  <target name="test:behat" depends="behat:init" description="Run behat tests">
-    <exec command="${drush.cmd} -r ${build.drupal.dir} vset -y password_policy_new_login_change 0" />
-    <exec command="${project.basedir}/bin/behat --format pretty --ansi" logoutput="true" passthru="true" checkreturn="true" />
-    <exec command="${drush.cmd} -r ${build.drupal.dir} vset -y password_policy_new_login_change 1" />
-  </target>
-
-  <target name="login" description="Login to the site">
-    <exec dir="${build.drupal.dir}" command="${drush.cmd} uli -l ${app.uri}" logoutput="true" passthru="true" />
-  </target>
-
-  <target name="devify" description="Set up dev environment defaults">
-    <exec dir="${build.drupal.dir}" command="${drush.cmd} -l ${app.uri} en devel search_krumo diff --yes" logoutput="true" passthru="true" />
-  </target>
-
-  <target name="compass:clean"
-          description="Cleanup compass files">
-    <exec dir="${src.custom.themes}" command="bundle exec compass clean"
+  <target name="make"
+          description="Compile aGov from a make file">
+    <exec dir="${app.dir}"
+          command="${drush.cmd} make -y ${app.profile.dir}/drupal-org.make --no-core --contrib-destination=${app.profile.dir}"
+          checkreturn="true"
+          logoutput="true"
+          passthru="true" />
+    <exec dir="${app.dir}"
+          command="${drush.cmd} make -y ${app.profile.dir}/drupal-org-core.make --prepare-install"
+          checkreturn="true"
+          logoutput="true"
           passthru="true" />
   </target>
 
-  <target name="compass:compile"
-          depends="compass:clean"
-          description="Compile all sass files for production">
-    <exec dir="${src.custom.themes}" command="bundle exec compass compile -e production --force"
+  <target name="install"
+          description="Install aGov with standard configuration.">
+    <!-- Install the site -->
+    <exec dir="${app.dir}"
+          command="${drush.cmd} site-install ${app.profile.name} -y --site-name=${app.name} --account-pass='${app.password}' --db-url=${db.querystring} ${app.profile.options}"
+          logoutput="true"
+          passthru="true" />
+
+    <!-- Standard configuration -->
+    <exec dir="${app.dir}"
+          command="${drush.cmd} vset -y file_public_path '${app.files.public}'"
+          logoutput="true"
+          passthru="true" />
+    <exec dir="${app.dir}"
+          command="${drush.cmd} vset -y file_temporary_path '${app.files.tmp}'"
+          logoutput="true"
+          passthru="true" />
+    <exec dir="${app.dir}"
+          command="${drush.cmd} vset -y file_private_path '${app.files.private}'"
+          logoutput="true"
           passthru="true" />
   </target>
 
-  <target name="composer update">
-    <exec command="composer update --prefer-dist" logoutput="true" passthru="true"/>
+  <target name="login" description="Generate a one-time login link">
+    <exec dir="${app.dir}"
+          command="${drush.cmd} uli -l ${app.uri}"
+          logoutput="true"
+          passthru="true" />
   </target>
 
-  <target name="composer install">
-    <exec command="composer install --prefer-dist" logoutput="true" passthru="true"/>
-  </target>
 </project>

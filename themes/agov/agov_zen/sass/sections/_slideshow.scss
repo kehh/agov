@@ -38,7 +38,6 @@
 #block-views-slideshow-block {
   position: relative;
   overflow: hidden;
-  background: #f1efed;
 
   .view-slideshow ul { margin: 0px; }
   .group-left, .group-right {
@@ -57,6 +56,9 @@
 
 // Theme
 #block-views-slideshow-block {
+  background: $color-slideshow;
+  color: $color-slideshow-contrast;
+
   .block-title { @extend %element-invisible; }
   .field-name-field-slide-image {
     margin: 0;

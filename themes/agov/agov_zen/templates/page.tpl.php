@@ -32,10 +32,24 @@
     <?php endif; ?>
 
     <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" /></a>
-  <?php endif; ?>
+      <a href="<?php print $front_page; ?>" title="<?php print $site_name; ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>" class="header__logo-image" /></a>
+    <?php endif; ?>
 
-  <?php print render($page['header']); ?>
+    <?php if ($site_name || $site_slogan): ?>
+      <div class="header__name-and-slogan element-invisible">
+        <?php if ($site_name): ?>
+          <h1 class="header__site-name">
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" class="header__site-link" rel="home"><span><?php print $site_name; ?></span></a>
+          </h1>
+        <?php endif; ?>
+
+        <?php if ($site_slogan): ?>
+          <div class="header__site-slogan"><?php print $site_slogan; ?></div>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
+
+    <?php print render($page['header']); ?>
   </div>
 </header>
 

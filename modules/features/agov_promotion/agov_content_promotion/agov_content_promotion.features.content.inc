@@ -168,7 +168,7 @@ function agov_content_promotion_content_defaults() {
             'height' => 64,
             'width' => 64,
           ),
-          'alt' => '',
+          'alt' => 'Example image',
           'title' => '',
           'width' => 64,
           'height' => 64,

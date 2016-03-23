@@ -14,11 +14,13 @@ a :focus {
 
 .header {
   background: #006893;
+  color: #fff;
   font-family: "OpenSansRegular", Arial, sans-serif;
 }
 
 .region-navigation {
   background: #333333;
+  color: #fff;
   font-family: "OpenSansRegular", Arial, sans-serif;
 }
 
@@ -36,7 +38,7 @@ a :focus {
 }
 .region-navigation .block__content > .menu > li > a:hover,
 .region-navigation .block__content > .menu > li.sfHover > a {
-  background: #dee0e2;
+  background: #f7f7f7;
 }
 .region-navigation .block__content > .menu > li > a:before {
   border-left-color: #FFF;
@@ -56,7 +58,7 @@ a :focus {
   color: #FFF;
 }
 .sidebar .block .block__content {
-  background: #dee0e2;
+  background: #f7f7f7;
 }
 
 #footer {

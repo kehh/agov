@@ -14,7 +14,9 @@ $color-tertiary-dark: #616161;
 
 // Colours of header and footer areas.
 $color-header: #FFF;
+$color-header-contrast: #444444;
 $color-footer: $color-primary;
+$color-footer-contrast: $color-primary-contrast;
 
 // Text colours.
 $heading-color: darken($color-primary, 40%);
@@ -27,3 +29,7 @@ $form-background: #FDFDFD;
 
 // Maintenance colours.
 $maintenance_primary: #006893;
+
+// Slideshow colours.
+$color-slideshow: #f1efed;
+$color-slideshow-contrast: $body-text2;

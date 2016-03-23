@@ -1,19 +1,21 @@
 application: previousnext/lamp
 
-test: &test
+deploy_setup: &deploy_setup
+  # Setup the remote repository.
+  - git remote add drupal pnx-bot@git.drupal.org:project/agov.git
+  - git fetch drupal
+  - git config --global user.email "admin@previousnext.com.au"
+  - git config --global user.name "PreviousNext"
+
+deploy_teardown: &deploy_teardown
+  # Remove the remote repository.
+  - git remote remove drupal
+
+deploy_7_2:
+  setup: *deploy_setup
   steps:
-    - echo "build.drupal.dir=./app" >> build.properties
-    - phing prepare:all
-    - phing make
-    - mkdir -p app/sites/default/files/tmp
-    - mkdir -p app/sites/default/private
-    - phing site-install -Ddb.name=drupal_local -Ddb.username=drupal -Ddb.password=drupal -Ddb.host=localhost
-    - chown -R www-data:www-data app/sites/default/files
-    - chown -R www-data:www-data app/sites/default/private
-
-test_pr:
-  <<: *test
-
-test_head:
-  <<: *test
-
+    # Update local build before we do anything else.
+    - git rebase drupal/7.x-2.x
+    # Push changes to Drupal.org.
+    - git push drupal 7.x-2.x
+  teardown: *deploy_teardown

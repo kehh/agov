@@ -3,6 +3,22 @@ $inputHeight: 25px;
 $inputVPadding: 2px;
 $borderWidth: 1px;
 
+::-webkit-input-placeholder {
+  color: #737373;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #737373;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #737373;
+}
+
+:-ms-input-placeholder {
+  color: #737373;
+}
+
 .form-textarea-wrapper textarea {
   min-height: 138px;
 }

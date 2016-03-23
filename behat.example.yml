@@ -1,18 +1,26 @@
+##
+# This is an example file that should be be extended
+# and copied into the root of your project.
+##
+
 default:
   extensions:
     Behat\MinkExtension\Extension:
       base_url: ${app.uri}
-      show_cmd: 'open %s'
+      goutte:
+        guzzle_parameters:
+          curl.options:
+            CURLOPT_PORT: ${app.port}
     Drupal\DrupalExtension\Extension:
       drush:
-        root: ${build.drupal.dir}
+        root: ${app.dir}
       drupal:
-        drupal_root: ${build.drupal.dir}
+        drupal_root: ${app.dir}
 
 drupal7:
   extensions:
     Drupal\DrupalExtension\Extension:
       drupal:
-        drupal_root: ${build.drupal.dir}
+        drupal_root: ${app.dir}
       drush:
-        root: ${build.drupal.dir}
+        root: ${app.dir}

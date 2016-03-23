@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Styles feature.
- */
-
-include_once 'agov_styles.features.inc';

@@ -21,3 +21,6 @@ DEPENDENCIES
   breakpoint (~> 2.0.5)
   compass (~> 0.12.2)
   sass-globbing (~> 1.1.1)
+
+BUNDLED WITH
+   1.10.3

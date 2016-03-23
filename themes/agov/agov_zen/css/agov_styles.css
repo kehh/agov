@@ -756,6 +756,24 @@ article img.img-float-left {
 }
 
 /* Global form elements */
+::-webkit-input-placeholder {
+  color: #737373;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #737373;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #737373;
+}
+
+:-ms-input-placeholder {
+  color: #737373;
+}
+
 .form-textarea-wrapper textarea {
   min-height: 138px;
 }
@@ -1005,7 +1023,7 @@ html.js .collapsed .fieldset-legend {
 }
 
 #block-menu-menu-quick-links ul a, .menu-block-agov_menu_block-sidebar .menu a {
-  background: url('../images/block-li-bg.png?1424906511') no-repeat scroll left 5px;
+  background: url('../images/block-li-bg.png?1435812272') no-repeat scroll left 5px;
   display: block;
   padding-left: 15px;
   padding-bottom: 2px;
@@ -1123,6 +1141,7 @@ html.js .collapsed .fieldset-legend {
   width: 1px;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
+  color: inherit !important;
 }
 
 /* Turns off the element-invisible effect. */
@@ -1592,7 +1611,7 @@ tr.selected td {
 }
 .progress .filled {
   background-color: #0072b9;
-  background-image: url('../images/progress.gif?1424906511');
+  background-image: url('../images/progress.gif?1435812272');
 }
 
 #region-content .content ul li {
@@ -1815,7 +1834,7 @@ form#sweaver-frontend > div {
   position: absolute;
   right: 0px;
   text-indent: -100px;
-  background: url('../images/search-btn-mobile.png?1424906511') 50% 50% no-repeat;
+  background: url('../images/search-btn-mobile.png?1435812272') 50% 50% no-repeat;
   background-color: #1b1b1b;
   width: 32px;
   font-weight: bold;
@@ -1901,10 +1920,11 @@ th a, th img {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
+  color: inherit;
   display: inline-block;
   width: 26px;
   height: 26px;
-  background-image: url('../images/font-resize-bg.png?1424906511');
+  background-image: url('../images/font-resize-bg.png?1435812272');
   background-repeat: no-repeat;
 }
 .text-resize a.font-large {
@@ -2512,7 +2532,7 @@ body {
   border-top: none;
 }
 #comments .comment {
-  background-image: url('../images/comment-icon.png?1424906511');
+  background-image: url('../images/comment-icon.png?1435812272');
   background-position: 13px 15px;
   background-repeat: no-repeat;
   background-color: #f3f3f3;
@@ -2724,6 +2744,7 @@ footer .block {
   overflow: hidden;
   margin: 0;
   background: #7a797a;
+  color: white;
   padding-bottom: 2.8em;
   padding-top: 1.4em;
 }
@@ -2765,6 +2786,7 @@ footer .block {
 
 .header {
   background: white;
+  color: #444444;
 }
 
 .header__logo {
@@ -2839,6 +2861,7 @@ footer .block {
   width: 1px;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
+  color: inherit !important;
 }
 
 .front .breadcrumb {
@@ -2882,6 +2905,7 @@ footer .block {
 
 .region-navigation {
   background: #7a797a;
+  color: white;
   position: relative;
   display: inline-block;
   width: 100%;
@@ -3070,7 +3094,6 @@ a.tabledrag-handle .handle {
 #block-views-slideshow-block {
   position: relative;
   overflow: hidden;
-  background: #f1efed;
 }
 #block-views-slideshow-block .view-slideshow ul {
   margin: 0px;
@@ -3102,6 +3125,10 @@ a.tabledrag-handle .handle {
   width: 100%;
 }
 
+#block-views-slideshow-block {
+  background: #f1efed;
+  color: #444444;
+}
 #block-views-slideshow-block .field-name-field-slide-image {
   margin: 0;
   position: relative;
@@ -3155,7 +3182,7 @@ a.tabledrag-handle .handle {
   text-align: left;
   text-indent: -100px;
   padding: 5px 14px;
-  background: url('../images/featured-articles-pause.png?1424906511') no-repeat 0px -27px;
+  background: url('../images/featured-articles-pause.png?1435812272') no-repeat 0px -27px;
 }
 .rslides_tabs li a.pause.paused {
   background-position: 0px 0px;
